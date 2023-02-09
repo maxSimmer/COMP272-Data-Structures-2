@@ -47,24 +47,55 @@ public class TreeExercise {
 		TreeNode child22 = child2.addChild(7);
 		
         //call methods
-		preOrderTraversal(root);
+		// preOrderTraversal(root);
+        // postOrderTraversal(root);
+        System.out.print(depthOfNode(child22));
     }
     
     //write a method to implement the preorder traversal 
+    // nodes, then subnodes
     //pseudocode from the slides
 	public static void preOrderTraversal(TreeNode node){
-		if(node == null)
+		if(node == null) // basecase
 			return;
+        // if node is NOT null, print
 		System.out.print(node.data + " ");
 		ArrayList<TreeNode> children = node.getChildren();
 		for(TreeNode tn : children){
 			preOrderTraversal(tn);
 		}
     }
+
+    public static void postOrderTraversal(TreeNode node) {
+        if (node == null){
+            return;
+        } 
+        ArrayList<TreeNode> children = node.getChildren();
+        for (TreeNode tn : children) {
+            postOrderTraversal(tn);
+        }
+        System.out.print(node.data + " ");
+    }
+
     //write a method implement the postorder traversal 
     //pseudocde from the slides
     
     //write a method that given a node, finds the depth of that node
+    public static int depthOfNode(TreeNode node) {
+        /*  base case
+        if (node == null) {
+            return -1;
+        }
+        if (node.getParent() == null) {
+            return 0;
+        }
+        */
+
+        while (node.isExternal() == true) {
+            // recursion
+            return depthOfNode(node.getParent()) + 1;
+        }
+    }
     
     //write a method that given the root node, finds the size of tree
     //aka how many nodes the tree has
