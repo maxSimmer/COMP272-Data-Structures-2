@@ -50,7 +50,7 @@ public class TreeExercise {
 		// preOrderTraversal(root);
         // postOrderTraversal(root);
         //System.out.print(depthOfNode(child22));
-        System.out.println(size(root));
+        System.out.print(size(root));
     }
     
     //write a method to implement the preorder traversal 
